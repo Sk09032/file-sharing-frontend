@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Share Easy</title>
+    <link rel="stylesheet" href="style.css" class="css" />
+  </head>
+  <body>
+    <section class="upload-container">
+      <div class="drop-zone">
+        <div class="icon-container">
+          <img
+            src="./Image/google-docs.png"
+            alt="file"
+            class="center"
+            draggable="false"
+          />
+          <img
+            src="./Image/google-docs.png"
+            alt="file"
+            class="left"
+            draggable="false"
+          />
+          <img
+            src="./Image/google-docs.png"
+            alt="file"
+            class="right"
+            draggable="false"
+          />
+        </div>
+        <input type="file" id="fileInput" />
+        <div>Drop your file here or <span class="browseBtn">browse</span></div>
+      </div>
+      <div class="progress-container">
+        <div class="bg-progress">
+          <div class="inner-container">
+            <div class="title">Uploading...</div>
+            <div class="percent-container"><span id="percent">0</span>%</div>
+            <div class="progress-bar"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sharing-container">
+        <p class="expire">Link expire in 24 hrs</p>
+        <div class="input-container">
+          <input type="text" id="fileURL" onclick="this.select()" readonly />
+          <img src="./Image/icons8-copy-24.png" alt="copy-icon" id="copyIcon" />
+        </div>
+        <p class="send-mail">Or Send via mail</p>
+        <div class="email-container">
+          <form id="email-form">
+            <div class="field">
+              <label for="sender" class="lable">Your Email</label>
+              <input
+                type="email"
+                class="emailinput"
+                name="from-email"
+                id="sender"
+                required
+              />
+            </div>
+            <div class="field">
+              <label for="receiver" class="lable">Receiver's Email</label>
+              <input
+                type="email"
+                name="to-email"
+                class="emailinput"
+                id="receiver"
+                required
+              />
+            </div>
+            <button type="submit" class="sendBtn">
+              <span class="sendText">Send</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <div class="upload-image"></div>
+    <div class="toast">copied to clipboard</div>
+    <script src="index.js"></script>
+  </body>
+</html>

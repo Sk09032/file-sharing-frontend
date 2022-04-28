@@ -1,0 +1,228 @@
+:root{
+    --container-width:500px;
+}
+
+body, html{
+    font-family: system-ui;
+    background: #eff5fe;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body, .drop-zone, .upload-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.upload-container{
+    background: #ffffff;
+    border-radius:25px;
+    box-shadow: 0px 0px 20px #0000002e;
+}
+.drop-zone{
+    height: 200px;
+    width: var(--container-width);
+    border: 2px dashed #0288d147;
+    margin: 30px;
+    border-radius: 10px;
+    transition: all .2s ease;
+
+}
+.dragged.drop-zone{
+    background: #eff5fe;
+    border-color: cornflowerblue;
+}
+.icon-container{
+    width: 75px;
+    height: 100px;
+    position: relative;
+}
+.icon-container img{
+    width: 75px;
+    position: absolute;
+    transition: transform 250ms ease-in-out;
+}
+.icon-container .center{
+    z-index: 2;
+}
+.icon-container .right ,.icon-container .left{
+    filter: grayscale(.5);
+    /* transform: scale(.9); */
+}
+.dragged .icon-container .right{
+    transform: rotate(10deg) translateX(20px) scale(.9);
+    transform-origin: bottom;   
+}
+.dragged .icon-container .left{
+    transform: rotate(-10deg) translateX(-20px) scale(.9);
+    transform-origin: bottom;
+    
+}
+.dragged .icon-container .center{
+    transform: translateY(-5px);
+}
+#fileInput{
+    display: none;
+}
+.browseBtn {
+    color:cornflowerblue ;
+    cursor: pointer;
+}
+
+.progress-container{
+    width: var(--container-width);
+    height: 70px;
+    border:  solid #eff5fe;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    position: relative;
+    display: none;
+}
+.progress-container .bg-progress{
+    background: #eff5fe;
+    width: 100%;
+    height: 100%;
+    border-radius: 1%;
+    transition: width 0.25s linear;
+    position: absolute;
+}
+.progress-container .inner-container{
+    position: absolute;
+    z-index: 1;
+    margin: 10px 15px;
+    width: calc(100% - 30px);
+}
+
+.percent-container{
+    font-size: 13px;
+    margin: 3px;
+    opacity: .8;
+}
+.progress-bar{
+    height: 3px;
+    width: 100%;
+    background:#03a9f4;
+    border-radius: 3px; 
+    transform-origin: left; 
+    transform: scaleX(0); 
+    transition: transform 0.25s linear;
+}
+.sharing-container{
+    width: var(--container-width);
+    margin-bottom: 20px;
+    display: none;
+}
+.expire{
+    opacity: 0.7;
+    text-align: center;
+    font-size: 15px;
+}
+.send-mail{
+    text-align: center;
+    font-size: 15px;
+}
+.sharing-container .input-container{
+    position: relative;
+}
+.sharing-container .input-container input{
+    width: 100%;
+    background: #f5fcff;
+    border: 2px dashed #0288d147;
+    border-radius: 6px;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    font-size: 20px;
+    color: #0000008c;
+}
+.input-container img{
+    position: absolute;
+    height: 30px;
+    width: 25px;
+    right: 10px;
+    top: 9px;
+    background:#f5fcff;
+    cursor: pointer;
+}
+.email-container{
+    display: flex;
+    align-items: center;    
+}
+.sendBtn{
+    width: 100px;
+    height: 35px;
+    background: #e1f4fc;
+    border: none;
+    cursor: pointer;  
+    margin-top: 20px;
+    border-radius: 5px;
+}
+.sendText{
+    font-size: 15px;
+    color: #79c1e5;
+    font-weight: lighter;
+}
+.email-container form{
+   width: 100%; 
+   border: 2px solid #0288d147;
+    border-radius: 10px;
+    padding: 30px 50px; 
+}
+.email-container .field{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    outline: none;
+}
+.lable{
+    font-size:18px;
+}
+.emailinput{
+    font-size:18px;
+    border: none;
+    border-bottom:2px solid #9ad2ed;
+    text-align: center;
+}
+.emailinput:focus{
+    outline: none;
+}
+.email-form{
+    text-align: center;
+}
+.toast{
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%,60px);
+    padding: 10px 20px;
+    background: #03a9f4;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 18px;
+    transition: transform ease-in-out 0.2s;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1) , 0px 4px 6px -2px rgba(0,0,0,0.05) ;
+}
+body{
+    flex-direction: row;
+}
+.upload-image{
+    background: url(./undraw_uploading_re_okvh.svg) no-repeat center;
+    background-size: contain;
+    height: 50vh;
+    width: 50vw;
+}
+
+@media screen and (max-width:900px) {
+         :root{
+             --container-width:320px
+         }
+         .upload-image{
+             display: none;
+         }
+         .email-container .field{
+             flex-direction: column;
+             width: 300px;
+         }
+}
